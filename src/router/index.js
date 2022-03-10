@@ -1,29 +1,79 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue       from 'vue';
+import VueRouter from 'vue-router';
+import store     from '@/store';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+    {
+        path:      '/auth',
+        name:      'Auth',
+        meta:      {public: true, title: process.env.VUE_APP_NAME + '. Регистрация'},
+        component: () => import(/*webpackChunkName: "auth"*/'@/views/AuthView'),
+    },
+    {
+        path:      '/recipes',
+        name:      'Home',
+        meta:      {public: true, title: process.env.VUE_APP_NAME + '. Рецепты'},
+        component: () => import(/* webpackChunkName: "home" */ '@/views/HomeView.vue'),
+    },
+    {
+        path:      '/recipes/:id',
+        name:      'Recipes',
+        meta:      {public: true, title: process.env.VUE_APP_NAME + '. Рецепты'},
+        component: () => import(/* webpackChunkName: "recipes" */ '@/views/AboutView.vue'),
+    },
+    {
+        path:      '/profile',
+        name:      'Profile',
+        meta:      {public: false, title: process.env.VUE_APP_NAME + '. Профиль'},
+        component: () => import(/* webpackChunkName: "profile" */ '@/views/profile/ProfileView.vue'),
+        children:  [
+            {
+                path:      '/profile/favorites',
+                name:      'Favorites',
+                meta:      {public: false, title: process.env.VUE_APP_NAME + '. Избранное'},
+                component: () => import(/* webpackChunkName: "favorites" */ '@/views/profile/FavoritesView.vue'),
+            },
+            {
+                path:      '/profile/settings',
+                name:      'Settings',
+                meta:      {public: false, title: process.env.VUE_APP_NAME + '. Настройки'},
+                component: () => import(/* webpackChunkName: "settings" */ '@/views/profile/SettingsView.vue'),
+            },
+        ],
+    },
+    {
+        path:     '/*',
+        redirect: '/recipes',
+    },
+];
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes,
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => !record.meta.public)) {
+        if (!store.getters.isAuth) {
+            next({
+                path: '/auth',
+            });
+        } else next();
+    } else {
+        if (to.name === 'Auth' && store.getters.isAuth) {
+            next({path: from.fullPath});
+            return;
+        }
+        next();
+    }
+});
+
+router.afterEach((to) => {
+    window.document.title = to.meta.title;
+});
+
+
+export default router;
