@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <header>
-            <Navbar></Navbar>
+            <Header></Header>
         </header>
         <main>
             <router-view/>
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import Navbar from '@/components/app/Navbar';
-import Footer from '@/components/app/Footer';
+import Header from '@/components/app/TheHeader';
+import Footer from '@/components/app/TheFooter';
 
 export default {
     components: {
-        Navbar,
+        Header,
         Footer,
     },
 };
