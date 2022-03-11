@@ -1,6 +1,6 @@
 <template>
     <div id="app" class="scrollable">
-        <header>
+        <header class="homepage-header">
             <Header></Header>
         </header>
         <main>
@@ -25,6 +25,13 @@ export default {
 </script>
 
 <style lang="scss">
+
+.homepage-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid white;
+}
 
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;

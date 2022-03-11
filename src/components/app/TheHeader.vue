@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <b-navbar toggleable="lg" type="dark" variant="info">
-            <b-navbar-brand :to="{name:'Home'}">NavBar</b-navbar-brand>
+    <div class="header-wrapper">
+        <b-navbar toggleable="lg" type="light" variant="info">
+            <b-navbar-brand :to="{name:'Home'}">Rosemary</b-navbar-brand>
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
             <b-collapse id="nav-collapse" is-nav>
@@ -17,9 +17,9 @@
                     <!--                        <b-dropdown-item href="#">RU</b-dropdown-item>-->
                     <!--                    </b-nav-item-dropdown>-->
 
-                    <b-nav-item-dropdown right v-if="isAuth">
+                    <b-nav-item-dropdown class="header-wrapper_user" right v-if="isAuth">
                         <template #button-content>
-                            <em>User</em>
+                            <em>{{ user.login }}</em>
                         </template>
                         <b-dropdown-item :to="{name:'Profile'}">Profile</b-dropdown-item>
                         <b-dropdown-item :to="{name:'Favorites'}">Favorites</b-dropdown-item>
@@ -44,8 +44,14 @@ export default {
         isAuth() {
             return this.$store.getters.isAuth;
         },
+        user() {
+            return this.$store.getters.user;
+        },
     },
-    methods:  {
+    mounted() {
+        this.$store.dispatch('getUserInfo');
+    },
+    methods: {
         signOut() {
             this.$log('Sign out');
         },
@@ -59,6 +65,18 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.header-wrapper {
+    .navbar-brand {
+        text-transform: uppercase;
+    }
 
+    .navbar {
+        background-color: $yellow !important;
+    }
+
+    &_user {
+        outline: none !important;
+    }
+}
 </style>
