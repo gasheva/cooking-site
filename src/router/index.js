@@ -6,12 +6,6 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-        path:      '/auth',
-        name:      'Auth',
-        meta:      {public: true, title: process.env.VUE_APP_NAME + '. Регистрация'},
-        component: () => import(/*webpackChunkName: "auth"*/'@/views/AuthView'),
-    },
-    {
         path:      '/recipes',
         name:      'Home',
         meta:      {public: true, title: process.env.VUE_APP_NAME + '. Рецепты'},
@@ -21,7 +15,7 @@ const routes = [
         path:      '/recipes/:id',
         name:      'Recipes',
         meta:      {public: true, title: process.env.VUE_APP_NAME + '. Рецепты'},
-        component: () => import(/* webpackChunkName: "recipes" */ '@/views/AboutView.vue'),
+        component: () => import(/* webpackChunkName: "recipes" */ '@/views/RecipeView.vue'),
     },
     {
         path:      '/profile',
@@ -41,6 +35,10 @@ const routes = [
                 meta:      {public: false, title: process.env.VUE_APP_NAME + '. Настройки'},
                 component: () => import(/* webpackChunkName: "settings" */ '@/views/profile/SettingsView.vue'),
             },
+            {
+                path:     '/profile/*',
+                redirect: '/profile',
+            },
         ],
     },
     {
@@ -58,17 +56,10 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => !record.meta.public)) {
         if (!store.getters.isAuth) {
-            next({
-                path: '/auth',
-            });
-        } else next();
-    } else {
-        if (to.name === 'Auth' && store.getters.isAuth) {
-            next({path: from.fullPath});
-            return;
+           return;
         }
-        next();
     }
+    next();
 });
 
 router.afterEach((to) => {
