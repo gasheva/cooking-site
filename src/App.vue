@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" class="scrollable">
         <header>
             <Header></Header>
         </header>
@@ -24,7 +24,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

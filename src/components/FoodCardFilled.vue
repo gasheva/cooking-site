@@ -1,21 +1,13 @@
 <template>
     <b-card
         overlay
-        img-src="https://picsum.photos/900/250/?image=3"
+        :img-src="img"
         img-alt="Card Image"
         text-variant="white"
-        title="Image Overlay"
-        sub-title="Subtitle"
+        class="food-card-filled"
     >
         <b-card-text>
-            <div class="food-card_plane">
-                <p class="food-card_header">
-                    Try best recipes from over the world
-                </p>
-                <p class="food-card_text">
-                    We collect
-                </p>
-            </div>
+            <slot></slot>
         </b-card-text>
     </b-card>
 </template>
@@ -24,25 +16,31 @@
 export default {
     name:  'FoodCardFilled',
     props: {
-        card: {
-            type:     Object,
+        img: {
+            type:     String,
             required: true,
         },
     },
 };
 </script>
 
-<style lang="scss" scoped>
-.food-card_plane {
-    background: rgba(204, 204, 204, 0.5); // opacity effect
+<style lang="scss">
+.food-card-filled {
+    height: 100%;
+    max-height: 100%;
+    border: none !important;
 
-    .food-card_header {
-        color: black;
-        font-size: 2.75rem;
+    .position-relative {
+        height: 100%;
+        max-height: 100%;
+        overflow: hidden;
+
+        .card-img {
+            height: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
     }
 
-    .food-card_text {
-        font-size: 1.125rem;
-    }
 }
 </style>

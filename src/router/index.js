@@ -13,7 +13,7 @@ const routes = [
     },
     {
         path:      '/recipes/:id',
-        name:      'Recipes',
+        name:      'Recipe',
         meta:      {public: true, title: process.env.VUE_APP_NAME + '. Рецепты'},
         component: () => import(/* webpackChunkName: "recipes" */ '@/views/RecipeView.vue'),
     },
@@ -56,7 +56,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     if (to.matched.some(record => !record.meta.public)) {
         if (!store.getters.isAuth) {
-           return;
+            return;
         }
     }
     next();

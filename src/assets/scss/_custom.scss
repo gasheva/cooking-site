@@ -1,0 +1,22 @@
+.scrollable {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.text-truncating {
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  white-space: normal !important;
+
+  &_1line {
+    -webkit-line-clamp: 1 !important;
+  }
+
+  &_4lines {
+    -webkit-line-clamp: 4 !important;
+  }
+}

@@ -6,8 +6,6 @@ import router from '@/router';
 import store  from '@/store';
 import Logger from '@/plugins/log.plugin'
 
-import '@/assets/scss/style.scss';
-
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(Logger);

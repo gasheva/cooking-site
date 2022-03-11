@@ -1,46 +1,78 @@
 <template>
-    <b-row>
-        <b-col class="showcase-grid">
+    <b-row class="showcase">
+        <b-col cols="7" class="poster">
             <b-link>
-                <figure>
-                    <div>
-                        <b-img src="/img/poster.webp" fluid alt="Recipe of the day"/>
-                    </div>
-                </figure>
+                <food-card-filled :img="poster.img">
+                    <food-card-message-poster :title="poster.title" :text="poster.text"/>
+                </food-card-filled>
             </b-link>
         </b-col>
-        <b-col class="advertisement">
+        <b-col cols="5" class="advertisement pr-5">
             <div class="advertisement_header">
                 <b-img src="/img/logo2.png" fluid alt="Rosemary finds your favourite recipe"/>
             </div>
             <div class="advertisement_body">
-                <cards-carousel/>
+                <cards-carousel class="advertisement_carousel"/>
             </div>
         </b-col>
     </b-row>
 </template>
 
 <script>
-import CardsCarousel from '@/components/CardsCarousel';
+import CardsCarousel         from '@/components/CardsCarousel';
+import FoodCardFilled        from '@/components/FoodCardFilled';
+import FoodCardMessagePoster from '@/components/FoodCardMessagePoster';
 
 export default {
     name:       'TheShowcase',
-    components: {CardsCarousel},
+    components: {FoodCardMessagePoster, FoodCardFilled, CardsCarousel},
+    data() {
+        return {
+            poster: {
+                id:    '1',
+                title: 'Try best recipes from over the world',
+                text:  'We keep recipes from 100 countries',
+                img:   '/img/poster.webp',
+            },
+        };
+    },
 };
 </script>
 
 <style lang="scss">
-.advertisement {
-    display: flex;
-    flex-direction: column;
+.showcase {
+    max-height: 550px !important;
+    height: 550px !important;
+    min-height: 550px !important;
 
-    &_header {
-        flex: 1;
-        background-color: #42b983;
+    .poster {
+        max-height: 100%;
+        height: 100%;
     }
 
-    &_body {
-        flex: 2;
+    .advertisement {
+        display: flex;
+        flex-direction: column;
+        max-height: 100%;
+
+        &_header {
+            flex: 1;
+
+            > img {
+                height: 150px;
+            }
+        }
+
+        &_body {
+            flex: 6;
+        }
+
+        &_carousel {
+            .carousel-inner {
+                max-height: 400px;
+            }
+        }
     }
+
 }
 </style>
