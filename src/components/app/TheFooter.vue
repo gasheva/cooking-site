@@ -1,6 +1,6 @@
 <template>
-    <div class="footer p-4 bg-dark text-light">
-        <span> © {{(new Date().getFullYear())}} Discovery or its subsidiaries and affiliates. All rights reserved.</span>
+    <div class="footer bg-dark text-light d-flex align-items-center justify-content-center h-100">
+        <span> © {{ (new Date().getFullYear()) }} Discovery or its subsidiaries and affiliates. All rights reserved.</span>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style scoped>
-.footer{
+.footer {
     font-size: .75rem;
 }
 </style>

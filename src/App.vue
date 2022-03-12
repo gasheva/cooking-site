@@ -1,12 +1,12 @@
 <template>
-    <div id="app" class="scrollable">
-        <header class="homepage-header">
+    <div id="app" class="app scrollable">
+        <header class="app_header">
             <Header></Header>
         </header>
-        <main>
+        <main class="app_body">
             <router-view/>
         </main>
-        <footer>
+        <footer class="app_footer">
             <Footer/>
         </footer>
     </div>
@@ -25,12 +25,23 @@ export default {
 </script>
 
 <style lang="scss">
+.app {
+    &_header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid white;
+        height: $header-height;
+        //overflow: hidden;
+    }
 
-.homepage-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid white;
+    &_body {
+        min-height: calc(100vh - 66px - 57px);
+    }
+
+    &_footer {
+        height: $footer-height;
+    }
 }
 
 #app {

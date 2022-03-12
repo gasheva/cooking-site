@@ -47,9 +47,9 @@ export default {
 
 <style lang="scss">
 .showcase {
-    max-height: calc(100vh - 56px) !important;
-    height: calc(100vh - 56px) !important;
-    min-height: calc(100vh - 56px) !important;
+    max-height: calc(100vh - 57px) !important;
+    height: calc(100vh - 57px) !important;
+    min-height: calc(100vh - 57px) !important;
 
     .poster {
         max-height: 100%;
