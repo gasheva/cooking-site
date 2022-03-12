@@ -58,6 +58,11 @@ export default {
 </script>
 
 <style lang="scss">
+.homepage {
+    padding-bottom: 3.12rem;
+    background: linear-gradient(to bottom, #fff 11rem, #f0f9f9 17rem);
+}
+
 .container--gap {
     display: flex;
     flex-direction: column;
