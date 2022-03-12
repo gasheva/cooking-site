@@ -37,8 +37,6 @@ export default {
 
 <style lang="scss">
 .row-food {
-    height: 400px;
-
     &_header-wrapper {
         display: flex;
         flex-direction: row;

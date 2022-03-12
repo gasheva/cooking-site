@@ -77,6 +77,10 @@ export default {
 
     &_user {
         outline: none !important;
+
+        > a {
+            outline: none !important;
+        }
     }
 }
 </style>

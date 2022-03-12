@@ -40,7 +40,7 @@ export default {
                     id:    '2',
                     title: 'Air Fryer Chicken Tenders',
                     tag:   'Kid-friendly',
-                    time:  58,
+                    time:  95,
                     rate:  4.3,
                     img:   '/img/recipes/Air-Fryer-Chickpeas.webp',
                 },
@@ -48,7 +48,7 @@ export default {
                     id:    '3',
                     title: 'Sticky Chinese Rice with Lạp Xưởng, Dried Shrimp, and Fryed Shiitake Mushrooms, and Crispy Air Fryer Tenders',
                     tag:   'Healthy Snacks and Appetizers',
-                    time:  13,
+                    time:  60,
                     rate:  0,
                     img:   '/img/recipes/albondigas-soup.webp',
                 }],
@@ -60,12 +60,15 @@ export default {
 <style lang="scss">
 .homepage {
     padding-bottom: 3.12rem;
-    background: linear-gradient(to bottom, #fff 11rem, #f0f9f9 17rem);
+    background: linear-gradient(to bottom, #fff 11rem, $background-blue 17rem);
 }
 
 .container--gap {
     display: flex;
     flex-direction: column;
     gap: 3rem;
+    &::after{
+        content: '';
+    }
 }
 </style>
