@@ -15,6 +15,14 @@
   }
 }
 
+textarea {
+  overflow: auto;
+  resize: none;
+}
+textarea.form-control.c-textarea--fixed {
+  height: 5.25rem;
+}
+
 .text-truncating {
   text-overflow: ellipsis !important;
   overflow: hidden !important;
@@ -29,4 +37,9 @@
   &_3lines {
     -webkit-line-clamp: 3 !important;
   }
+}
+
+.action-button{
+  max-width: 8rem;
+  font-size: 15px !important;
 }

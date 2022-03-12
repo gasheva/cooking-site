@@ -36,24 +36,43 @@
                              :number="index"/>
             </div>
 
+
+            <div class="comments pb-5">
+                <h2 class="recipe_title">Comments</h2>
+                <div class="comments_comment mb-5" v-if="isAuth">
+                    <Comment @post="postComment" :key="'c_'+tracker"/>
+                </div>
+                <div class="comments_list d-flex flex-column">
+                    <comment-list-item v-for="comment in comments" :author="comment.author"
+                                       :date-from="comment.dateFrom"
+                                       :comment="comment.comment"/>
+                </div>
+            </div>
         </b-container>
-        <div class="recipe_comments"></div>
     </b-container>
 </template>
 
 <script>
-import RecipeHeader from '@/components/recipe/RecipeHeader';
-import RecipeStep   from '@/components/recipe/RecipeStep';
+import Comment         from '@/components/recipe/Comment';
+import CommentListItem from '@/components/recipe/CommentListItem';
+import RecipeHeader    from '@/components/recipe/RecipeHeader';
+import RecipeStep      from '@/components/recipe/RecipeStep';
 
 export default {
     name:       'RecipeView',
-    components: {RecipeStep, RecipeHeader},
+    components: {Comment, CommentListItem, RecipeStep, RecipeHeader},
     data() {
         return {
             recipe:       null,
             comments:     null,
             isBookmarked: false,
+            tracker:      0,
         };
+    },
+    computed: {
+        isAuth() {
+            return this.$store.getters.isAuth;
+        },
     },
     async created() {
         const id      = this.$route.params.id;
@@ -63,6 +82,13 @@ export default {
     methods: {
         async toggleBookmark() {
             this.isBookmarked = await this.$store.dispatch('toggleBookmark', this.recipe.id);
+        },
+        async postComment(comment) {
+            let resp = await this.$store.dispatch('postComment', comment);
+            if (!resp.error) {
+                this.comments = resp;
+                this.tracker++;
+            }
         },
     },
 };
@@ -89,6 +115,17 @@ export default {
 
     &_list {
         padding-left: 1rem;
+    }
+}
+
+.comments {
+    &_list {
+        gap: 2rem;
+        width: 90%;
+
+        > * {
+            border-bottom: 1px solid #d8d8d8;
+        }
     }
 }
 

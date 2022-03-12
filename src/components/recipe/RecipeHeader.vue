@@ -15,7 +15,7 @@
                     </b-link>
                 </span>
             </div>
-            <b-link @click.prevent="bookmark" class="bookmark-button h4 m-0">
+            <b-link @click.prevent="bookmark" class="bookmark-button h4 m-0" v-if="isAuth">
                 <b-icon-bookmark-heart-fill v-if="isBookmarked"/>
                 <b-icon-bookmark-heart v-else/>
             </b-link>
@@ -25,8 +25,8 @@
 
 <script>
 export default {
-    name:    'RecipeHeader',
-    props:   {
+    name:     'RecipeHeader',
+    props:    {
         title:        {
             type:     String,
             required: true,
@@ -44,7 +44,12 @@ export default {
             default: () => false,
         },
     },
-    methods: {
+    computed: {
+        isAuth() {
+            return this.$store.getters.isAuth;
+        },
+    },
+    methods:  {
         bookmark() {
             this.$emit('toggle');
         },
