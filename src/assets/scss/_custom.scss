@@ -5,6 +5,16 @@
   scroll-behavior: smooth;
 }
 
+.link--no-decor {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
 .text-truncating {
   text-overflow: ellipsis !important;
   overflow: hidden !important;

@@ -69,14 +69,4 @@ export default {
         box-shadow: 5px 5px 0 $yellow;
     }
 }
-
-.link--no-decor {
-    color: inherit;
-    text-decoration: none;
-
-    &:hover {
-        color: inherit;
-        text-decoration: none;
-    }
-}
 </style>

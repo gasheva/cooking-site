@@ -34,6 +34,7 @@ export default {
                     tag:   'Healthy Air Fryer',
                     time:  40,
                     rate:  2.3,
+                    voted: 14,
                     img:   '/img/recipes/Air-Fryer-Buffalo-Cauliflower.webp',
                 },
                 {
@@ -42,6 +43,7 @@ export default {
                     tag:   'Kid-friendly',
                     time:  95,
                     rate:  4.3,
+                    voted: 90,
                     img:   '/img/recipes/Air-Fryer-Chickpeas.webp',
                 },
                 {
@@ -50,6 +52,7 @@ export default {
                     tag:   'Healthy Snacks and Appetizers',
                     time:  60,
                     rate:  0,
+                    voted: 0,
                     img:   '/img/recipes/albondigas-soup.webp',
                 }],
         };
