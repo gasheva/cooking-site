@@ -12,6 +12,7 @@
             style="text-shadow: 1px 1px 2px #333;"
             @sliding-start="onSlideStart"
             @sliding-end="onSlideEnd"
+            class="food-carousel"
         >
             <b-carousel-slide v-for="card in cards" :key="card.id">
                 <template #img>
@@ -63,5 +64,16 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.food-carousel {
+    height: 400px;
+
+    .carousel-inner {
+        height: 100%;
+
+        .carousel-item {
+            height: 100%;
+        }
+    }
+}
 </style>
