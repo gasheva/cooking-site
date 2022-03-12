@@ -11,6 +11,12 @@
             <div class="advertisement_header">
                 <b-img src="/img/logo2.png" fluid alt="Rosemary finds your favourite recipe"/>
             </div>
+            <div class="advertisement_text">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias commodi dolorum ipsam laborum odit
+                    quasi quis, reiciendis sequi sunt, totam voluptate voluptatem voluptatibus.
+                </p>
+            </div>
             <div class="advertisement_body">
                 <cards-carousel class="advertisement_carousel"/>
             </div>
@@ -41,9 +47,9 @@ export default {
 
 <style lang="scss">
 .showcase {
-    max-height: 550px !important;
-    height: 550px !important;
-    min-height: 550px !important;
+    max-height: calc(100vh - 56px) !important;
+    height: calc(100vh - 56px) !important;
+    min-height: calc(100vh - 56px) !important;
 
     .poster {
         max-height: 100%;
@@ -64,12 +70,17 @@ export default {
         }
 
         &_body {
+            display: flex;
+            align-items: end;
             flex: 6;
         }
 
         &_carousel {
+            width: 100%;
+
             .carousel-inner {
                 max-height: 400px;
+                width: 100%;
             }
         }
     }
