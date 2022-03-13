@@ -30,8 +30,11 @@ const routes = [
 ];
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
+    mode:           'history',
+    base:           process.env.BASE_URL,
+    scrollBehavior: (to, from, savedPosition) => {
+        document.getElementById('app').scrollIntoView();
+    },
     routes,
 });
 
