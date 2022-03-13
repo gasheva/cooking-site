@@ -54,6 +54,12 @@ export default {
         > a {
             outline: 2px solid #ccc;
             border-radius: 5px;
+
+            &:hover {
+                transform: translate(-2px, -2px);
+                box-shadow: 5px 5px 0 $yellow;
+                outline: none;
+            }
         }
     }
 }
