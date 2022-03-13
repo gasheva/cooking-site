@@ -22,8 +22,6 @@
                             <em>{{ user.login }}</em>
                         </template>
                         <b-dropdown-item :to="{name:'Profile'}">Profile</b-dropdown-item>
-                        <b-dropdown-item :to="{name:'Favorites'}">Favorites</b-dropdown-item>
-                        <b-dropdown-item :to="{name:'Settings'}">Settings</b-dropdown-item>
                         <b-dropdown-item @click.prevent="signOut">Sign Out</b-dropdown-item>
                     </b-nav-item-dropdown>
 

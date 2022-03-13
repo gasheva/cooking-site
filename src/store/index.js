@@ -113,6 +113,35 @@ export default new Vuex.Store({
                 },
             ];
         },
+        async getUserComments(){
+            return [
+                {
+                    author:   'Behemoth',
+                    comment:  'Fantastic recipe, I substituted the lasagna noodles for zucchini slices and people could not stop eating it!!!! Thanks',
+                    dateFrom: new Date(),
+                },
+                {
+                    author:   'Behemoth',
+                    comment:  'Fantastic recipe, I substituted the lasagna noodles for zucchini slices and people could not stop eating it!!!! Thanks',
+                    dateFrom: new Date(2020, 3, 19),
+                },
+                {
+                    author:   'Behemoth',
+                    comment:  'Just adding to the chorus of voices that this is a fantastic recipe. My first time ever attempting lasagna and I don\'t see how it could have gone better. Made it exactly as is with no substitutions or changes. I was daunted by some in the comments who said it took them 3 hours? Prep probably took no more than 45 minutes, most of which was waiting for the water to boil.',
+                    dateFrom: new Date(2020, 4, 19),
+                },
+                {
+                    author:   'Behemoth',
+                    comment:  'How much fresh spinach did you use, I bought one 10 oz box which is what I normally use for a 9x13 pan.',
+                    dateFrom: new Date(2020, 3, 17),
+                },
+            ];
+        },
+        async getUserFavorites(){
+            return {
+
+            }
+        }
     },
     modules:   {},
 });

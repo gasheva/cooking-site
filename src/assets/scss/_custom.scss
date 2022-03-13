@@ -19,6 +19,7 @@ textarea {
   overflow: auto;
   resize: none;
 }
+
 textarea.form-control.c-textarea--fixed {
   height: 5.25rem;
 }
@@ -39,7 +40,29 @@ textarea.form-control.c-textarea--fixed {
   }
 }
 
-.action-button{
+.action-button {
   max-width: 8rem;
   font-size: 15px !important;
+}
+
+.router-link-active {
+  color: $primary !important;
+
+  & path {
+    fill: $primary;
+  }
+}
+
+.comments {
+  &_list {
+    gap: 2rem;
+    width: 90%;
+
+    > * {
+      border-bottom: 1px solid #d8d8d8;
+    }
+    &--settings >a:last-child{
+      border-bottom: none;
+    }
+  }
 }

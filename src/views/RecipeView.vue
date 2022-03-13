@@ -118,17 +118,6 @@ export default {
     }
 }
 
-.comments {
-    &_list {
-        gap: 2rem;
-        width: 90%;
-
-        > * {
-            border-bottom: 1px solid #d8d8d8;
-        }
-    }
-}
-
 .recipe-image {
     max-height: 500px;
     max-width: 500px;

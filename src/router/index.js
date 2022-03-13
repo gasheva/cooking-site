@@ -22,24 +22,6 @@ const routes = [
         name:      'Profile',
         meta:      {public: false, title: process.env.VUE_APP_NAME + '. Профиль'},
         component: () => import(/* webpackChunkName: "profile" */ '@/views/profile/ProfileView.vue'),
-        children:  [
-            {
-                path:      '/profile/favorites',
-                name:      'Favorites',
-                meta:      {public: false, title: process.env.VUE_APP_NAME + '. Избранное'},
-                component: () => import(/* webpackChunkName: "favorites" */ '@/views/profile/FavoritesView.vue'),
-            },
-            {
-                path:      '/profile/settings',
-                name:      'Settings',
-                meta:      {public: false, title: process.env.VUE_APP_NAME + '. Настройки'},
-                component: () => import(/* webpackChunkName: "settings" */ '@/views/profile/SettingsView.vue'),
-            },
-            {
-                path:     '/profile/*',
-                redirect: '/profile',
-            },
-        ],
     },
     {
         path:     '/*',
