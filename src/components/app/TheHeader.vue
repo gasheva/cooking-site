@@ -57,6 +57,7 @@ export default {
 .header-wrapper {
     .navbar-brand {
         text-transform: uppercase;
+        color: black !important;
     }
 
     .navbar {
