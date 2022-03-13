@@ -1,6 +1,7 @@
 import Vue                         from 'vue';
 import {BootstrapVue, IconsPlugin} from 'bootstrap-vue';
 import Snotify, {SnotifyPosition}  from 'vue-snotify';
+import Vuelidate           from 'vuelidate';
 
 import App              from '@/App.vue';
 import router           from '@/router';
@@ -12,6 +13,7 @@ import ingredientFilter from '@/filters/ingredient.filter';
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(logger);
+Vue.use(Vuelidate);
 Vue.use(Snotify, {
     toast: {
         position: SnotifyPosition.rightTop,
@@ -20,6 +22,7 @@ Vue.use(Snotify, {
 });
 Vue.filter('timeFilter', timeFilter);
 Vue.filter('ingredientFilter', ingredientFilter);
+
 
 Vue.config.productionTip = false;
 
