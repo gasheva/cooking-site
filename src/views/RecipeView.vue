@@ -84,7 +84,7 @@ export default {
             this.isBookmarked = await this.$store.dispatch('toggleBookmark', this.recipe.id);
         },
         async postComment(comment) {
-            let resp = await this.$store.dispatch('postComment', comment);
+            let resp = await this.$store.dispatch('postComment', {comment: comment, recipeId: this.recipe.id});
             if (!resp.error) {
                 this.comments = resp;
                 this.tracker++;
