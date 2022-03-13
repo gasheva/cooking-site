@@ -1,13 +1,13 @@
 <template>
     <div id="app" class="app scrollable">
         <header class="app_header">
-            <Header></Header>
+            <Header/>
         </header>
         <main class="app_body">
             <router-view/>
         </main>
         <footer class="app_footer">
-            <Footer/>
+            <Footer v-once/>
         </footer>
         <vue-snotify></vue-snotify>
     </div>

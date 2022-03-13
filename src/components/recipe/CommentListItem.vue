@@ -1,11 +1,11 @@
-<template>
+<template functional>
     <div class="comment">
         <div class="comment_header">
-            <span class="comment_author">{{ author }}</span>
-            <span class="comment_date"> • {{ dateFrom | timeFilter('date')}}</span>
+            <span class="comment_author">{{ props.author }}</span>
+            <span class="comment_date"> • {{ props.dateFrom | timeFilter('date') }}</span>
         </div>
         <div class="comment_body">
-            <p>{{ comment }}</p>
+            <p>{{ props.comment }}</p>
         </div>
     </div>
 </template>
@@ -34,10 +34,12 @@ export default {
 .comment {
     text-align: left;
     font-size: 15px;
-    &_header{
+
+    &_header {
         line-height: 1;
         font-size: 13px;
     }
+
     &_date {
         font-weight: 500;
         font-size: 12px;

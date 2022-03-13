@@ -1,9 +1,9 @@
-<template>
-    <div class="recipe-step text-justify">
+<template functional>
+    <div class="recipe-step text-justify" :class="data.staticClass">
         <h3 class="text-left">
-            {{ (number + 1) + '. ' + title + ':' }}
+            {{ (props.number + 1) + '. ' + props.title + ':' }}
         </h3>
-        <p class="recipe-step_text">{{ text }}</p>
+        <p class="recipe-step_text">{{ props.text }}</p>
     </div>
 </template>
 

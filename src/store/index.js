@@ -85,7 +85,9 @@ export default new Vuex.Store({
             };
         },
         async getComments(_, id) {
-            return [
+            // TODO (to test comments)
+            const r = Math.floor(Math.random() * 10);
+            return r % 2 === 0 ? [] : [
                 {
                     author:   'Holmes',
                     comment:  'Fantastic recipe, I substituted the lasagna noodles for zucchini slices and people could not stop eating it!!!! Thanks',

@@ -1,10 +1,10 @@
-<template>
+<template functional>
     <div class="food-card_plane">
         <p class="food-card_header">
-            {{ card.title }}
+            {{ props.card.title }}
         </p>
         <p class="food-card_text">
-            {{ card.text }}
+            {{ props.card.text }}
         </p>
     </div>
 </template>

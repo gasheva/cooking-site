@@ -50,6 +50,9 @@
             </div>
         </b-container>
     </b-container>
+    <div class="text-center" v-else>
+        <b-spinner class="mt-4"/>
+    </div>
 </template>
 
 <script>
@@ -81,7 +84,7 @@ export default {
     },
     methods: {
         async toggleBookmark() {
-            let resp           = await this.$store.dispatch('toggleBookmark', this.recipe.id);
+            let resp = await this.$store.dispatch('toggleBookmark', this.recipe.id);
             if (resp.error_code) {
                 this.$store.dispatch('showError', resp);
                 return;

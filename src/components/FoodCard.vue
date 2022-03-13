@@ -1,4 +1,4 @@
-<template>
+<template functional>
     <b-card
         no-body
         style="max-width: 20rem;"
@@ -8,25 +8,25 @@
         class="food-card"
     >
         <b-card-img-lazy
-            :src="recipe.img"
+            :src="props.recipe.img"
             alt="Dish picture"
         >
         </b-card-img-lazy>
 
         <!--CARD BODY-->
         <b-card-text class="food-card_body">
-            <span class="food-card_tag text-truncating text-truncating_1line">{{ recipe.tag }}</span>
-            <h4 class="food-card_header text-truncating text-truncating_3lines mb-0">{{ recipe.title }}</h4>
+            <span class="food-card_tag text-truncating text-truncating_1line">{{ props.recipe.tag }}</span>
+            <h4 class="food-card_header text-truncating text-truncating_3lines mb-0">{{ props.recipe.title }}</h4>
         </b-card-text>
 
         <!--CARD FOOTER-->
         <b-card-text class="food-card_footer meta-text d-flex justify-content-between">
             <span>
                 <b-icon-clock class="meta-text_icon mr-2"/>
-                <span class="meta-text_text">{{ recipe.time | timeFilter }}</span>
+                <span class="meta-text_text">{{ props.recipe.time | timeFilter }}</span>
             </span>
             <span>
-                <span class="meta-text_text mr-2">{{ recipe.rate }}</span>
+                <span class="meta-text_text mr-2">{{ props.recipe.rate }}</span>
                 <b-icon-star-fill class="meta-text_icon "/>
             </span>
         </b-card-text>
