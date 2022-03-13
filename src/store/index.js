@@ -158,7 +158,16 @@ export default new Vuex.Store({
                     img:   '/img/recipes/Air-Fryer-Chickpeas.webp',
                 },
                 {
-                    id:    '3',
+                    id:    '5',
+                    title: 'Air Fryer Chicken Tenders',
+                    tag:   'Kid-friendly',
+                    time:  95,
+                    rate:  4.3,
+                    voted: 90,
+                    img:   '/img/recipes/Air-Fryer-Chickpeas.webp',
+                },
+                {
+                    id:    '3.3',
                     title: 'Sticky Chinese Rice with Lạp Xưởng, Dried Shrimp, and Fryed Shiitake Mushrooms, and Crispy Air Fryer Tenders',
                     tag:   'Healthy Snacks and Appetizers',
                     time:  60,

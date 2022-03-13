@@ -7,7 +7,7 @@
                                    :comment="comment.comment"/>
             </b-link>
 
-            <div class="pagination-container">
+            <div class="pagination-container d-flex justify-content-end">
                 <b-pagination
                     v-model="page"
                     :total-rows="pageCount"
