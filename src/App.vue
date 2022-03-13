@@ -9,6 +9,7 @@
         <footer class="app_footer">
             <Footer/>
         </footer>
+        <vue-snotify></vue-snotify>
     </div>
 </template>
 
@@ -25,6 +26,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~vue-snotify/styles/material.css';
 .app {
     &_header {
         position: sticky;

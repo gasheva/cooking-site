@@ -81,13 +81,20 @@ export default {
     },
     methods: {
         async toggleBookmark() {
-            this.isBookmarked = await this.$store.dispatch('toggleBookmark', this.recipe.id);
+            let resp           = await this.$store.dispatch('toggleBookmark', this.recipe.id);
+            if (resp.error_code) {
+                this.$store.dispatch('showError', resp);
+                return;
+            }
+            this.isBookmarked = resp;
         },
         async postComment(comment) {
             let resp = await this.$store.dispatch('postComment', {comment: comment, recipeId: this.recipe.id});
-            if (!resp.error) {
+            if (!resp.error_code) {
                 this.comments = resp;
                 this.tracker++;
+            } else {
+                this.$store.dispatch('showError', resp);
             }
         },
     },

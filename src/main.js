@@ -1,5 +1,6 @@
 import Vue                         from 'vue';
 import {BootstrapVue, IconsPlugin} from 'bootstrap-vue';
+import Snotify, {SnotifyPosition}  from 'vue-snotify';
 
 import App              from '@/App.vue';
 import router           from '@/router';
@@ -11,6 +12,12 @@ import ingredientFilter from '@/filters/ingredient.filter';
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(logger);
+Vue.use(Snotify, {
+    toast: {
+        position: SnotifyPosition.rightTop,
+        timeout:  3000,
+    },
+});
 Vue.filter('timeFilter', timeFilter);
 Vue.filter('ingredientFilter', ingredientFilter);
 

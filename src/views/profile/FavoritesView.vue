@@ -38,7 +38,12 @@ export default {
         };
     },
     async created() {
-        this.favorites = await this.$store.dispatch('getUserFavorites');
+        let resp = await this.$store.dispatch('getUserFavorites');
+        if (resp.error_code) {
+            this.$store.dispatch('showError', resp);
+            return;
+        }
+        this.favorites = resp;
         this.setupPagination(this.favorites);
         this.isLoading = false;
     },

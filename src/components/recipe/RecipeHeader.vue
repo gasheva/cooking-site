@@ -50,7 +50,7 @@ export default {
         },
     },
     methods:  {
-        bookmark() {
+        async bookmark() {
             this.$emit('toggle');
         },
     },

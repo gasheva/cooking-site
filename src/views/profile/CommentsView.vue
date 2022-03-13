@@ -1,7 +1,8 @@
 <template>
     <div>
         <div class="comments_list comments_list--settings d-flex flex-column" v-if="!isLoading">
-            <b-link v-for="comment in paginatedDisplayingItems[page-1]" :to="{name:'Recipe', params:{'id':comment.recipeId}}" class="link--no-decor">
+            <b-link v-for="comment in paginatedDisplayingItems[page-1]"
+                    :to="{name:'Recipe', params:{'id':comment.recipeId}}" class="link--no-decor">
                 <comment-list-item :author="comment.author"
                                    :date-from="comment.dateFrom"
                                    :comment="comment.comment"/>
@@ -37,7 +38,12 @@ export default {
         };
     },
     async created() {
-        this.comments = await this.$store.dispatch('getUserComments', {current: this.page, per: this.pageSize});
+        let resp = await this.$store.dispatch('getUserComments', {current: this.page, per: this.pageSize});
+        if (resp.error_code) {
+            this.$store.dispatch('showError', resp);
+            return;
+        }
+        this.comments = resp;
         this.setupPagination(this.comments);
         this.isLoading = false;
     },

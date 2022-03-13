@@ -1,5 +1,6 @@
-import Vue  from 'vue';
-import Vuex from 'vuex';
+import Vue         from 'vue';
+import Vuex        from 'vuex';
+import errorFilter from '@/filters/error.filter';
 
 Vue.use(Vuex);
 
@@ -12,9 +13,26 @@ export default new Vuex.Store({
             login: 'Behemoth',
             email: 'behemoth87@m.ru',
         }),
+        lang:   state => 'en',
     },
     mutations: {},
     actions:   {
+        showError:   (ctx, err) => {
+            if (!err) {
+                return Vue.prototype.$snotify.error(errorFilter('some_error'));
+            }
+            if (err.error_code) {
+                return Vue.prototype.$snotify.error(errorFilter(err.error_code));
+            }
+
+            return Vue.prototype.$snotify.error(err.toString());
+        },
+        showSuccess: (ctx, msg) => {
+            Vue.prototype.$snotify.success(msg);
+        },
+        showInfo:    (ctx, msg) => {
+            Vue.prototype.$snotify.info(msg);
+        },
         async getUserInfo() {
 
         },
