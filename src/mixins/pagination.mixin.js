@@ -1,7 +1,7 @@
 export default {
     data() {
         return {
-            page:                     2,
+            page:                     1,
             pageSize:                 3,
             pageCount:                0,
             paginatedAllItems:        [],

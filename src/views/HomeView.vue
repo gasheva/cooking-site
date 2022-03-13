@@ -27,35 +27,11 @@ export default {
     components: {RowFoodSection, TheShowcase, CardsCarousel},
     data() {
         return {
-            recipes: [
-                {
-                    id:    '1',
-                    title: 'Air Fryer Cauliflower Buffalo Wings',
-                    tag:   'Healthy Air Fryer',
-                    time:  40,
-                    rate:  2.3,
-                    voted: 14,
-                    img:   '/img/recipes/Air-Fryer-Buffalo-Cauliflower.webp',
-                },
-                {
-                    id:    '2',
-                    title: 'Air Fryer Chicken Tenders',
-                    tag:   'Kid-friendly',
-                    time:  95,
-                    rate:  4.3,
-                    voted: 90,
-                    img:   '/img/recipes/Air-Fryer-Chickpeas.webp',
-                },
-                {
-                    id:    '3',
-                    title: 'Sticky Chinese Rice with Lạp Xưởng, Dried Shrimp, and Fryed Shiitake Mushrooms, and Crispy Air Fryer Tenders',
-                    tag:   'Healthy Snacks and Appetizers',
-                    time:  60,
-                    rate:  0,
-                    voted: 0,
-                    img:   '/img/recipes/albondigas-soup.webp',
-                }],
+            recipes: [],
         };
+    },
+    async created() {
+        this.recipes = await this.$store.dispatch('getHomeRecipes');
     },
 };
 </script>
@@ -70,7 +46,8 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    &::after{
+
+    &::after {
         content: '';
     }
 }

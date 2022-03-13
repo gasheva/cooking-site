@@ -113,7 +113,7 @@ export default new Vuex.Store({
                 },
             ];
         },
-        async getUserComments(){
+        async getUserComments() {
             return [
                 {
                     author:   'Behemoth',
@@ -137,11 +137,104 @@ export default new Vuex.Store({
                 },
             ];
         },
-        async getUserFavorites(){
-            return {
-
-            }
-        }
+        async getUserFavorites() {
+            return [
+                {
+                    id:    '1',
+                    title: 'Air Fryer Cauliflower Buffalo Wings',
+                    tag:   'Healthy Air Fryer',
+                    time:  40,
+                    rate:  2.3,
+                    voted: 14,
+                    img:   '/img/recipes/Air-Fryer-Buffalo-Cauliflower.webp',
+                },
+                {
+                    id:    '2',
+                    title: 'Air Fryer Chicken Tenders',
+                    tag:   'Kid-friendly',
+                    time:  95,
+                    rate:  4.3,
+                    voted: 90,
+                    img:   '/img/recipes/Air-Fryer-Chickpeas.webp',
+                },
+                {
+                    id:    '3',
+                    title: 'Sticky Chinese Rice with Lạp Xưởng, Dried Shrimp, and Fryed Shiitake Mushrooms, and Crispy Air Fryer Tenders',
+                    tag:   'Healthy Snacks and Appetizers',
+                    time:  60,
+                    rate:  0,
+                    voted: 0,
+                    img:   '/img/recipes/albondigas-soup.webp',
+                },
+                {
+                    id:    '4',
+                    title: 'Air Fryer Cauliflower Buffalo Wings',
+                    tag:   'Healthy Air Fryer',
+                    time:  40,
+                    rate:  2.3,
+                    voted: 14,
+                    img:   '/img/recipes/Air-Fryer-Buffalo-Cauliflower.webp',
+                },
+                {
+                    id:    '5',
+                    title: 'Air Fryer Chicken Tenders',
+                    tag:   'Kid-friendly',
+                    time:  95,
+                    rate:  4.3,
+                    voted: 90,
+                    img:   '/img/recipes/Air-Fryer-Chickpeas.webp',
+                },
+                {
+                    id:    '6',
+                    title: 'Sticky Chinese Rice with Lạp Xưởng, Dried Shrimp, and Fryed Shiitake Mushrooms, and Crispy Air Fryer Tenders',
+                    tag:   'Healthy Snacks and Appetizers',
+                    time:  60,
+                    rate:  0,
+                    voted: 0,
+                    img:   '/img/recipes/albondigas-soup.webp',
+                },
+                {
+                    id:    '7',
+                    title: 'Sticky Chinese Rice with Lạp Xưởng, Dried Shrimp, and Fryed Shiitake Mushrooms, and Crispy Air Fryer Tenders',
+                    tag:   'Healthy Snacks and Appetizers',
+                    time:  60,
+                    rate:  0,
+                    voted: 0,
+                    img:   '/img/recipes/albondigas-soup.webp',
+                },
+            ];
+        },
+        async getHomeRecipes() {
+            return [
+                {
+                    id:    '1',
+                    title: 'Air Fryer Cauliflower Buffalo Wings',
+                    tag:   'Healthy Air Fryer',
+                    time:  40,
+                    rate:  2.3,
+                    voted: 14,
+                    img:   '/img/recipes/Air-Fryer-Buffalo-Cauliflower.webp',
+                },
+                {
+                    id:    '2',
+                    title: 'Air Fryer Chicken Tenders',
+                    tag:   'Kid-friendly',
+                    time:  95,
+                    rate:  4.3,
+                    voted: 90,
+                    img:   '/img/recipes/Air-Fryer-Chickpeas.webp',
+                },
+                {
+                    id:    '3',
+                    title: 'Sticky Chinese Rice with Lạp Xưởng, Dried Shrimp, and Fryed Shiitake Mushrooms, and Crispy Air Fryer Tenders',
+                    tag:   'Healthy Snacks and Appetizers',
+                    time:  60,
+                    rate:  0,
+                    voted: 0,
+                    img:   '/img/recipes/albondigas-soup.webp',
+                },
+            ];
+        },
     },
     modules:   {},
 });

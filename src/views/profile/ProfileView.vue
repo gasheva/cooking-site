@@ -1,5 +1,5 @@
 <template>
-    <b-container class="text-justify">
+    <b-container class="text-justify mb-4 mt-4">
         <button
             v-for="tab in tabs"
             :key="tab"
@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .tab-button {
     padding: 6px 10px;
     border-top-left-radius: 3px;
