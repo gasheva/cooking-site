@@ -78,9 +78,11 @@ export default {
         },
     },
     async created() {
-        const id      = this.$route.params.id;
-        this.recipe   = await this.$store.dispatch('getRecipe', id);
-        this.comments = await this.$store.dispatch('getComments', id);
+        const id          = this.$route.params.id;
+        const recipeResp  = this.$store.dispatch('getRecipe', id);
+        const commentResp = this.$store.dispatch('getComments', id);
+        this.recipe       = await recipeResp;
+        this.comments     = await commentResp;
     },
     methods: {
         async toggleBookmark() {
